@@ -4,15 +4,13 @@ class_name Player
 
 # ========== KNOWN BUGS ================
 #
-# player can still harm enemies when paused -- no longer crashes!
-#
+# player can still harm enemies when paused -- but no longer crashes!
 #
 # rhythm is tied to processing speed :(((((
 #
 # h velocity not conserved when jumping out of slide
 ##		it seems the jump part of a jump slide is now holding h velocity and still has the player in the SLIDE state, but all h velocity is lost in the fall post jump peak
 #
-# death screen unclickable-- there's probably something above it
 #
 # =================== TO DO =====================
 #
@@ -29,13 +27,14 @@ class_name Player
 # parkour style climb up. 
 ##	FAILED TO IMPLEMENT. Non functioning code should exist commented out
 #
-# Double Jump
+# Double Jump-- Scratch that-- SHOTGUN JUMP !!!
 #
 # stairs
 #
 # smaller collision box on slide
 #
 # line of sight as precondition for enemy "chase" state
+# optimize enemies--lag when too many too close
 #
 # improve walljumps
 
@@ -174,7 +173,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	calculate_movement_parameters()
 	#$CanvasLayer/DeathScreen/Panel/RestartButton.button_up.connect(restart)
-	#$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
+	$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
 	%HealthBar.value = health
 	%StaminaBar.value = stamina
 	
@@ -736,5 +735,5 @@ func kill():
 
 
 
-#func _on_restart_button_button_up():
-#	pass # Replace with function body.
+func _on_restart_button_button_up():
+	restart()
