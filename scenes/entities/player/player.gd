@@ -528,9 +528,6 @@ func cycle_three():
 
 
 # ______ P A T T E R N   M E M O R Y _______ #
-#
-#
-#
 var hat_pats: Array = [[],[],[]]
 var user_hats: Array = []
 var snare_pats: Array = [[]]
@@ -539,7 +536,6 @@ var kick_pats: Array = [[],[]]
 func set_user_hats(): #set_user_hats(sixteenth)
 	user_hats.append(1)
 	print(user_hats)
-
 
 func drum_machine_factory_reset():
 	
@@ -552,10 +548,8 @@ func drum_machine_factory_reset():
 	#hat_pats[3] = [1,2,4,5,6,8,9,10,12,13,14,16]
 	hat_pats[2] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 	
-	
 	# === SNARES & CLAPS === #
 	snare_pats[0] = [5,13] 
-	
 	
 	# = ===== = KICKS = ===== = #
 	kick_pats[0] = [1,11]
@@ -563,16 +557,11 @@ func drum_machine_factory_reset():
 
 
 
-
-
-
-
-
 # ===== ==== === == BEATSHOTS SYSTEM == === ==== ===== #
 var beat_count := 0
 var bar_beat := 0
 var counting_beat := false
-var bpm := 120.0
+var bpm := 140.0
 var bps := bpm/60.0
 var sixteenth := 0
 var bar_sixteenth := 0
@@ -580,14 +569,16 @@ var bar_one_twenty_eighth := 0
 
 func start_beat_count():
 	counting_beat = true
-	while counting_beat: # and toggle_game_paused:
+	var sixteenth_duration = (60.0 / bpm) / 4.0
+	while counting_beat: # and not game_paused:
 		check_for_shots()
-		await get_tree().create_timer(bps/16.0).timeout
+		await get_tree().create_timer(sixteenth_duration).timeout
 		sixteenth += 1
 		#@warning_ignore("integer_division")  WORKS, but not using "beats" for anything at the moment
 		#beat_count = sixteenth / 4
 		bar_sixteenth += 1
 		bar_one_twenty_eighth += 1
+		
 		if bar_sixteenth > 16:
 			bar_sixteenth = 1
 		if bar_one_twenty_eighth > 128:
@@ -613,7 +604,6 @@ func check_for_shots():
 			shoot_play_kick_punch()
 		if bar_one_twenty_eighth in [63, 122, 123, 125, 127]: # 
 			shoot_play_kick_punch()
-
 
 
 

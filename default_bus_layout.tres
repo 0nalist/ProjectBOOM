@@ -13,7 +13,7 @@ band_db/4000_hz = -19.2
 
 [sub_resource type="AudioEffectFilter" id="AudioEffectFilter_6t2lg"]
 resource_name = "Filter"
-cutoff_hz = 200.0
+cutoff_hz = 135.0
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_txv70"]
 resource_name = "HighPassFilter"
@@ -66,7 +66,7 @@ bus/7/send = &"Master"
 bus/7/effect/0/effect = SubResource("AudioEffectEQ10_7o2oc")
 bus/7/effect/0/enabled = false
 bus/7/effect/1/effect = SubResource("AudioEffectFilter_6t2lg")
-bus/7/effect/1/enabled = false
+bus/7/effect/1/enabled = true
 bus/7/effect/2/effect = SubResource("AudioEffectHighPassFilter_txv70")
 bus/7/effect/2/enabled = false
 bus/8/name = &"bass"
