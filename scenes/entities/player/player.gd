@@ -637,6 +637,10 @@ func shoot_play_shotgun():
 	# Apply the push force to the player's velocity
 	velocity -= push_force
 	
+	#IF POINTING AT GROUND: (having trouble finding this)
+	#var upward_direction = global_transform.basis.y
+	#velocity += upward_direction * 15
+	
 	#damage target if hit
 	if gun_ray.is_colliding() and gun_ray.get_collider().has_method("take_damage"): #THIS LINE gives "Attempt to call function 'has_method' in base 'null instance' on a null instance." when an enemy is killed while paused
 		gun_ray.get_collider().take_damage(right_fist_damage)
