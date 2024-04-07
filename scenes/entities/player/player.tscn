@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhg2324v3ytlt"]
+[gd_scene load_steps=17 format=3 uid="uid://bhg2324v3ytlt"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_ih33w"]
 [ext_resource type="PackedScene" uid="uid://xl13qf81yghu" path="res://scenes/entities/gun_manager.tscn" id="2_qy3vs"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://7oqrwlail5bf" path="res://assets/audio/samples/onekick.ogg" id="5_ggw1x"]
 [ext_resource type="AudioStream" uid="uid://biada3awi8v8" path="res://assets/audio/samples/claponeshot.ogg" id="6_d76ac"]
 [ext_resource type="PackedScene" uid="uid://vvixco1yroiy" path="res://scenes/handlers/connection_handler.tscn" id="7_ub0up"]
+[ext_resource type="PackedScene" uid="uid://c7hqhekilnpfy" path="res://scenes/player_stat_handler.tscn" id="8_cv4ps"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1olw"]
 height = 2.44876
@@ -83,8 +84,15 @@ oversampling = 10.0
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 script = ExtResource("1_ih33w")
+max_health = null
+health = null
+stamina = null
+max_stamina = null
+Jump_Peak_Time = null
+Jump_Fall_Time = null
+Jump_Height = null
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10939, 0)
@@ -159,6 +167,7 @@ grow_vertical = 0
 
 [node name="HealthBar" type="ProgressBar" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -267,5 +276,10 @@ theme_override_font_sizes/font_size = 6
 text = "QUIT"
 
 [node name="ConnectionHandler" parent="." instance=ExtResource("7_ub0up")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="PlayerStatHandler" parent="." instance=ExtResource("8_cv4ps")]
+max_health = 100
 
 [connection signal="button_up" from="CanvasLayer/DeathScreen/Panel/RestartButton" to="." method="_on_restart_button_button_up"]

@@ -2,6 +2,6 @@ class_name CurrencyResource
 extends BaseCollectableResource
 
 
-@export var value: int = 0
+#@export var collectable_texture: Texture = null
 
 

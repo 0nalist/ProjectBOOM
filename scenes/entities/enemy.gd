@@ -3,14 +3,20 @@ class_name Enemy
 extends CharacterBody3D
 
 
-#LegionGames pathfinding
-#var player = null
-#@export var player_path: NodePath
-#@export var game_manager: Game
+#======= KNOWN BUGS =========
+# NOT currently playing deathrattle
+
+# Can still be damaged while paused
+# 
 
 signal hurt_player
 
-
+@onready var bass_on_hit_player = $BassOnHit
+var bass_on_hit = [''' ADD BASS SAMPLES OF DIFFERENT TONES HERE
+	preload("res://assets/audio/pickups/coins/housefourth1.ogg"),
+	preload("res://assets/audio/pickups/coins/housefourth2.ogg"),
+	preload("res://assets/audio/pickups/coins/househit3.ogg")'''
+	 ]
 
 #@onready var player = get_tree().get_first_node_in_group("player")
 @onready var animated_sprite_3d = $AnimatedSprite3D
@@ -87,7 +93,7 @@ func handle_idle_state(delta):
 	if player_detected():
 		current_state = States.CHASE
 
-func handle_chase_state(delta):
+func handle_chase_state(_delta):
 	nav_agent.target_position = player.position
 	
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
@@ -105,7 +111,7 @@ func handle_chase_state(delta):
 	if distance_to_player() > 100:
 		current_state = States.IDLE
 
-func handle_attack_state(delta):
+func handle_attack_state(_delta):
 	
 	if player_in_attack_range():
 		$AnimatedSprite3D.play("attack")
@@ -115,14 +121,14 @@ func handle_attack_state(delta):
 		
 	
 
-func handle_search_state(delta):
+func handle_search_state(_delta):
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	move_and_slide()
 	if player_detected():
 		current_state = States.CHASE
 
 
-func handle_jump_state(delta):
+func handle_jump_state(_delta):
 	print("ejump")
 
 func player_detected() -> bool:
@@ -187,7 +193,7 @@ func take_damage(value):
 	
 	#ANIMATE DAMAGE NUMBERS. Preferably on site of impact--so maybe in gun manager?
 
-func handle_dying_state(delta):
+func handle_dying_state(_delta):
 	if not dead:  # Ensure this runs once
 		$CollisionShape3D.disabled = true
 		death_rattle.play()

@@ -13,6 +13,10 @@ signal toggle_game_paused(is_paused: bool)
 #signal pause_beat_system
 #signal resume_beat_system
 
+func _ready():
+	ui.main_menu.visible = true
+
+
 var game_paused: bool = false:
 	get:
 		return game_paused

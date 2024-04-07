@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="CurrencyResource" load_steps=3 format=3 uid="uid://dm7h0f5874x24"]
 
 [ext_resource type="Texture2D" uid="uid://dip5a5rw81b2d" path="res://assets/art/collectables/coins/spr_coin_strip4.png" id="1_1qies"]
-[ext_resource type="Script" path="res://scenes/resources/collectables/currency_resource.gd" id="1_grilv"]
+[ext_resource type="Script" path="res://scenes/resources/collectables/currency_resource.gd" id="2_i23bh"]
 
 [resource]
-script = ExtResource("1_grilv")
-value = 1
+script = ExtResource("2_i23bh")
 collectable_texture = ExtResource("1_1qies")
-collectable_type = "coin"
+collectable_type = ""
+tag = "Currency"
+value = 2

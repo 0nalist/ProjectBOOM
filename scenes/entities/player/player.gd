@@ -48,10 +48,7 @@ func collect(collectable):
 	collected.emit(collectable)
 
 
-
-
-
-
+signal update_health(current_health, max_health)
 
 
 
@@ -59,13 +56,13 @@ func collect(collectable):
 # ======== PLAYER BODY PARTS ======== #
 @onready var head = $Head
 @onready var main_camera = %MainCamera
-@onready var health_bar = %HealthBar
+#@onready var health_bar = %HealthBar
 @onready var stamina_bar = %StaminaBar
 
 
 # PLAYER VARIABLES
-@export var max_hp: float = 100.0
-@export var health: float = 90.0
+@export var max_health: float = 100.0
+@export var current_health: float = 50.0
 @export var stamina: float = 70.0
 @export var max_stamina: float = 100.0
 var dead = false
@@ -170,12 +167,16 @@ func calculate_movement_parameters()->void:
 var camera_rotation = Vector2(0,0)
 
 func _ready():
+	
+	SignalBus.on_update_health(current_health, max_health)
+	#NEED TO CALL UPDATING OF UI HEALTH
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	calculate_movement_parameters()
 	#$CanvasLayer/DeathScreen/Panel/RestartButton.button_up.connect(restart)
-	$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
-	%HealthBar.value = health
-	%StaminaBar.value = stamina
+	#$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
+	#%HealthBar.value = health #factoring this out into UI
+	%StaminaBar.value = stamina #this next
 	
 	drum_machine_factory_reset()
 	start_beat_count()
@@ -407,19 +408,23 @@ func climb():
 
 
 
-
+func change_health(amount: int) -> void:
+	current_health += amount
+	# Ensure health does not exceed maximum or fall below 0
+	current_health = clamp(current_health, 0, max_health)
+	# Emit the signal with the updated health values
+	emit_signal("update_health", current_health, max_health)
 
 		
 func damage_player(value):
-	health -= value
-	%HealthBar.value = health
-	if health <= 0:
+	change_health(-value)
+	if current_health <= 0:
 		kill()
 
 func heal(value):
-	health += value
-	%HealthBar.value = health
-	if health <= 0:
+	current_health += value
+	%HealthBar.value = current_health
+	if current_health <= 0:
 		kill()
 
 var sliding = false
@@ -668,7 +673,7 @@ func shoot_play_kick_punch():
 
 # AUDIO FX SYSTEM
 func nudge_bass_cutoff_filter(value):
-	
+	pass
 	''' NOT WORKING. Consult godotdocs
 	var bus_name = "bassfx"
 	var bus_index = AudioServer.get_bus_index(bus_name)

@@ -28,6 +28,14 @@ project/assembly_name="Boomer"
 
 enabled=PackedStringArray("res://addons/qodot/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "red",
+"res://scenes/": "blue"
+}
+
 [input]
 
 move_fwd={
