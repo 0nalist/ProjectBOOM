@@ -168,8 +168,6 @@ var camera_rotation = Vector2(0,0)
 
 func _ready():
 	
-	SignalBus.on_update_health(current_health, max_health)
-	#NEED TO CALL UPDATING OF UI HEALTH
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	calculate_movement_parameters()

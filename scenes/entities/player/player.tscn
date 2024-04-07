@@ -86,13 +86,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ih33w")
-max_health = null
-health = null
-stamina = null
-max_stamina = null
-Jump_Peak_Time = null
-Jump_Fall_Time = null
-Jump_Height = null
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10939, 0)
