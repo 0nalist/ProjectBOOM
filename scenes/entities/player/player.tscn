@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://7oqrwlail5bf" path="res://assets/audio/samples/onekick.ogg" id="5_ggw1x"]
 [ext_resource type="AudioStream" uid="uid://biada3awi8v8" path="res://assets/audio/samples/claponeshot.ogg" id="6_d76ac"]
 [ext_resource type="PackedScene" uid="uid://vvixco1yroiy" path="res://scenes/handlers/connection_handler.tscn" id="7_ub0up"]
-[ext_resource type="PackedScene" uid="uid://c7hqhekilnpfy" path="res://scenes/player_stat_handler.tscn" id="8_cv4ps"]
+[ext_resource type="PackedScene" uid="uid://5ao875dk5gtg" path="res://scenes/player_stat_handler.tscn" id="8_cv4ps"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1olw"]
 height = 2.44876

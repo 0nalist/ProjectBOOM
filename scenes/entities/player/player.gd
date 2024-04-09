@@ -94,7 +94,7 @@ var dead = false
 
 # FINE TUNE JUMP MECHANICS
 @export_category("Movement Parameters")
-@export var Jump_Peak_Time: float = .5
+@export var Jump_Peak_Time: float = .4
 @export var Jump_Fall_Time: float = .5
 @export var Jump_Height: float = 4.269
 #@export var Jump_Distance: float = 4.0
