@@ -167,6 +167,7 @@ func calculate_movement_parameters()->void:
 var camera_rotation = Vector2(0,0)
 
 func _ready():
+	#Connect signals
 	
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

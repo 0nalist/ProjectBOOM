@@ -2,9 +2,10 @@ extends Node3D
 
 
 @export var max_health: int = 0
+@onready var player = $".."
 
 
-var current_health: int = 0
+var current_health: int = 1
 var current_coins: int = 0
 
 
@@ -16,6 +17,7 @@ func _ready():
 	
 	#Sets variables at start
 	SignalBus.emit_on_update_health(current_health, max_health)
+	player.current_health = current_health
 	SignalBus.emit_on_update_currency(current_coins)
 
 func on_health_collected(resource: BaseCollectableResource) -> void:
