@@ -19,17 +19,12 @@ var splash_texts = [
 	"- don't try to use the options menu -",
 	"- i'm more of an 'ideas' guy -",
 	"- who let the dogs out -",
-<<<<<<< Updated upstream
-	"- pre-pre-alpha version 0.0.0.01 -"
-=======
+	"- pre-pre-alpha version 0.0.0.01 -",
 	"- pre-pre-alpha version 0.0.0.01 -",
 	'- all systems are placeholder -',
 	'- i just need to implement this new feature... -',
 	"- brb refactoring every single function -",
 	"- please help me -",
-
-	
->>>>>>> Stashed changes
 ]
 
 

@@ -7,4 +7,10 @@
 script = ExtResource("1_grilv")
 value = 1
 collectable_texture = ExtResource("1_1qies")
+<<<<<<< Updated upstream
 collectable_type = "coin"
+=======
+collectable_type = ""
+tag = "EMPTY"
+value = 2
+>>>>>>> Stashed changes
