@@ -164,12 +164,21 @@ func calculate_movement_parameters()->void:
 	Jump_Velocity = Jump_Gravity * Jump_Peak_Time
 	
 
-
+func update_player_health(c_health: int, m_health: int):
+	current_health =  c_health
+	max_health = m_health
 
 #Beginning of new movement script
 var camera_rotation = Vector2(0,0)
 
 func _ready():
+<<<<<<< Updated upstream
+=======
+	SignalBus.on_update_health.connect(update_player_health)
+	update_player_health(current_health, max_health)
+	emit_signal("update_health", current_health, max_health)
+	
+>>>>>>> Stashed changes
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	calculate_movement_parameters()
 	#$CanvasLayer/DeathScreen/Panel/RestartButton.button_up.connect(restart)
@@ -634,6 +643,13 @@ func shoot_play_shotgun():
 	# Apply the push force to the player's velocity
 	velocity -= push_force
 	
+<<<<<<< Updated upstream
+=======
+	#IF POINTING AT GROUND: (having trouble determining this)
+	#var upward_direction = global_transform.basis.y
+	#velocity += upward_direction * 15
+	
+>>>>>>> Stashed changes
 	#damage target if hit
 	if gun_ray.is_colliding() and gun_ray.get_collider().has_method("take_damage"): #THIS LINE gives "Attempt to call function 'has_method' in base 'null instance' on a null instance." when an enemy is killed while paused
 		gun_ray.get_collider().take_damage(right_fist_damage)

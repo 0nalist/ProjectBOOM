@@ -267,5 +267,12 @@ theme_override_font_sizes/font_size = 6
 text = "QUIT"
 
 [node name="ConnectionHandler" parent="." instance=ExtResource("7_ub0up")]
+<<<<<<< Updated upstream
+=======
+collision_layer = 2
+collision_mask = 0
+
+[node name="PlayerStatHandler" parent="." instance=ExtResource("8_cv4ps")]
+>>>>>>> Stashed changes
 
 [connection signal="button_up" from="CanvasLayer/DeathScreen/Panel/RestartButton" to="." method="_on_restart_button_button_up"]
