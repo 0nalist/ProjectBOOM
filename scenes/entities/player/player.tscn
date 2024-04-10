@@ -235,5 +235,6 @@ collision_mask = 0
 
 [node name="PlayerStatHandler" parent="." instance=ExtResource("8_cv4ps")]
 unique_name_in_owner = true
+max_health = 100.0
 
 [connection signal="button_up" from="CanvasLayer/DeathScreen/Panel/RestartButton" to="." method="_on_restart_button_button_up"]

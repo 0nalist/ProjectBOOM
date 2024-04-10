@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseCollectableResource" load_steps=3 format=3 uid="uid://cjncewv8ht1vj"]
+
+[ext_resource type="Script" path="res://scenes/resources/collectables/base_collectable_resource.gd" id="1_81hq1"]
+[ext_resource type="Texture2D" uid="uid://th5rtnxoiu7h" path="res://assets/art/weapons/shotgunshootingFixed-Sheet-Sheet.png" id="1_mfxr1"]
+
+[resource]
+script = ExtResource("1_81hq1")
+collectable_texture = ExtResource("1_mfxr1")
+collectable_type = "shotgun1"
+tag = "Weapon"
+value = 100

@@ -24,6 +24,7 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_xavk6"]
 
 [node name="Pickup" type="Area3D"]
+collision_mask = 3
 script = ExtResource("1_dpyub")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -36,6 +37,7 @@ sprite_frames = SubResource("SpriteFrames_7p0te")
 
 [node name="PickupArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79237, 0)
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

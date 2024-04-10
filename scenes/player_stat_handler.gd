@@ -14,6 +14,7 @@ func _ready():
 	#Connects functions
 	SignalBus.health_collected.connect(on_health_collected)
 	SignalBus.currency_collected.connect(on_currency_collected)
+	SignalBus.weapon_collected.connect(on_weapon_collected)
 	
 	#Sets variables at start
 	current_health = max_health-20
@@ -28,6 +29,11 @@ func on_health_collected(resource: BaseCollectableResource) -> void:
 func on_currency_collected(resource: BaseCollectableResource) -> void:
 	current_coins += resource.value
 	SignalBus.emit_on_update_currency(current_coins)
+
+
+func on_weapon_collected(resource: BaseCollectableResource) -> void:
+	player.equip(resource.collectable_type)##right here
+	SignalBus.emit_on_pickup_weapon(resource.collectable_type)
 
 
 func take_damage(amount: float):

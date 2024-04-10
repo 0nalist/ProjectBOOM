@@ -255,7 +255,8 @@ func _input(event):
 	if Input.is_action_just_pressed("equip"):
 		#if not holding_pistol and not holding_right_fist and not holding_shotgun:
 		#	start_beat_count()
-		equip()
+		#equip()
+		pass
 	if Input.is_action_just_pressed("esc"):
 		if counting_beat:
 			pause_beat_system.emit()
@@ -418,13 +419,11 @@ func slide():
 
 
 
-func equip_(weapon):
-	return weapon
-	#I WANT to be able to pass the weapon, parse the weapon
 
 
-func equip():
-	equip_shotgun()
+func equip(weapon: String):
+	if weapon == "shotgun1":
+		equip_shotgun()
 	equip_pistol()
 	equip_right_fist()
 

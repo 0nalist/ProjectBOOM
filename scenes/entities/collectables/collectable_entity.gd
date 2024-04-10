@@ -9,8 +9,9 @@ extends Area3D
 @export var collectable_resource: BaseCollectableResource = null
 
 func _ready():
-	area_entered.connect(on_area_entered)
 	set_texture()
+	area_entered.connect(on_area_entered)
+	
 
 func set_texture() -> void:
 	sprite_3d.texture = collectable_resource.collectable_texture
