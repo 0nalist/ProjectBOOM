@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_81hq1")
 collectable_texture = ExtResource("1_mfxr1")
-collectable_type = "shotgun1"
+collectable_name = "shotgun1"
 tag = "Weapon"
 value = 100

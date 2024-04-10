@@ -21,7 +21,7 @@ signal weapon_collected(collectable_entity_resource: BaseCollectableResource)
 
 signal on_update_health(value: int, max_value: int)
 signal on_update_currency(value: int)
-signal on_pickup_weapon(collectable_type: String)#WHAT DO I PASS?
+signal on_pickup_weapon(collectable_name: String)#WHAT DO I PASS?
 #endregion
 
 

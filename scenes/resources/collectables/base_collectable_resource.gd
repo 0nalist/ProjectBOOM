@@ -4,7 +4,7 @@ extends Resource
 
 #OLD
 @export var collectable_texture: Texture = null
-@export var collectable_type: String = ""
+@export var collectable_name: String = ""
 #ENDOLD
 
 @export_enum("Health", "Mana", "Currency", "Weapon") var tag = "EMPTY"

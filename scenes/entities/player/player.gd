@@ -139,7 +139,7 @@ var one_shooting = false
 var two_shooting = true
 var three_shooting = true
 
-var holding_pistol = true
+var holding_pistol = false
 var holding_shotgun = false
 var holding_right_fist = true
 
@@ -422,10 +422,13 @@ func slide():
 
 
 func equip(weapon: String):
+	#MATCH would be better than ifs, there might be an even better way yet
 	if weapon == "shotgun1":
+		#SHOW TOOLTIP, PASS SHOTGUN TO TOOLTIP, ALLOW EQUIP FROM TOOLTIP LOGIC?
 		equip_shotgun()
-	equip_pistol()
-	equip_right_fist()
+	if weapon == "pistol1":
+		equip_pistol()
+	#equip_right_fist()
 
 var pistol_damage := 3
 var shotgun_damage := 7

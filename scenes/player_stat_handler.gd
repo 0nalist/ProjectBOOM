@@ -32,8 +32,8 @@ func on_currency_collected(resource: BaseCollectableResource) -> void:
 
 
 func on_weapon_collected(resource: BaseCollectableResource) -> void:
-	player.equip(resource.collectable_type)##right here
-	SignalBus.emit_on_pickup_weapon(resource.collectable_type)
+	player.equip(resource.collectable_name)
+	SignalBus.emit_on_pickup_weapon(resource.collectable_name)
 
 
 func take_damage(amount: float):

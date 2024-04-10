@@ -23,8 +23,6 @@ func on_area_entered(area: Area3D) -> void:
 
 
 
-
-
 '''OLD
 signal collect_entity
 
@@ -43,7 +41,7 @@ func on_collect() -> void:
 
 '''
 func handle_animations() -> void:
-	match collectable_resource.collectable_type:
+	match collectable_resource.collectable_name:
 		"":
 			return
 		"coin":
@@ -53,17 +51,17 @@ func handle_animations() -> void:
 
 
 func handle_sounds() -> void:
-	match collectable_resource.collectable_type:
+	match collectable_resource.collectable_name:
 		"":
 			return
 		"coin":
 			var sound_to_play = house_fourths[randi() % house_fourths.size()]
+			#MAKE THIS QUEUE SOUND TO PLAY ON NEXT BAR OR BEAT
 			house_fourth_player.stream = sound_to_play
 			house_fourth_player.play()
 			
-			
-			
-			
+		"weapon":
+			pass
 
 
 @onready var house_fourth_player = $ipod/HouseFourthPlayer

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://c3cibwa0258ev"]
+[gd_scene load_steps=68 format=3 uid="uid://c3cibwa0258ev"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_0gs5r"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_ypnyy"]
@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://cjncewv8ht1vj" path="res://scenes/resources/collectables/weapon collectables/shotgun1.tres" id="32_hrsv8"]
 [ext_resource type="Texture2D" uid="uid://c43kba62no0eu" path="res://textures/RetroPixel/PIPES_1A.PNG" id="32_u35sj"]
 [ext_resource type="Texture2D" uid="uid://ccfbnkkhjr8c4" path="res://textures/RetroPixel/SLIME_1A.PNG" id="33_865qp"]
+[ext_resource type="Resource" uid="uid://bsiqlkkf37hn7" path="res://scenes/resources/collectables/weapon collectables/pistol1.tres" id="33_lqmpe"]
 [ext_resource type="Texture2D" uid="uid://ci6y3x8prb814" path="res://textures/RetroPixel/LIGHT_1B.PNG" id="34_ghjeh"]
 [ext_resource type="Texture2D" uid="uid://bqbcln27v7072" path="res://textures/RetroPixel/RIVET_1A.PNG" id="35_lts4v"]
 [ext_resource type="Texture2D" uid="uid://b6cakeo8sad0f" path="res://textures/RetroPixel/PAPER_1E.PNG" id="36_ywy75"]
@@ -732,6 +733,10 @@ collectable_resource = ExtResource("31_y2s66")
 [node name="CollectableEntity2" parent="." instance=ExtResource("29_wert2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2676, 62.0518, 42.4915)
 collectable_resource = ExtResource("32_hrsv8")
+
+[node name="CollectableEntity3" parent="." instance=ExtResource("29_wert2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9475, 62.0518, 34.923)
+collectable_resource = ExtResource("33_lqmpe")
 
 [node name="Pickup" parent="." instance=ExtResource("28_x56yp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.4001, 61.1523, 106.087)
