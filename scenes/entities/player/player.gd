@@ -135,11 +135,11 @@ var Jump_Gravity: float = 17.0
 var Fall_Gravity: float = 17.0
 
 # GUN INITIALIZATION
-var one_shooting = false
+var one_shooting = true
 var two_shooting = true
 var three_shooting = true
 
-var holding_pistol = true
+var holding_pistol = false
 var holding_shotgun = false
 var holding_right_fist = true
 
@@ -255,7 +255,8 @@ func _input(event):
 	if Input.is_action_just_pressed("equip"):
 		#if not holding_pistol and not holding_right_fist and not holding_shotgun:
 		#	start_beat_count()
-		equip()
+		#equip()
+		pass
 	if Input.is_action_just_pressed("esc"):
 		if counting_beat:
 			pause_beat_system.emit()
@@ -385,10 +386,10 @@ func climb():
 
 
 		
-func damage_player(value: int):
+func damage_player(value: float):
 	$PlayerStatHandler.take_damage(value)
 
-func heal(value: int):
+func heal(value: float):
 	$PlayerStatHandler.add_health(value)
 	
 
@@ -418,15 +419,16 @@ func slide():
 
 
 
-func equip_(weapon):
-	return weapon
-	#I WANT to be able to pass the weapon, parse the weapon
 
 
-func equip():
-	equip_shotgun()
-	equip_pistol()
-	equip_right_fist()
+func equip(weapon: String):
+	#MATCH would be better than ifs, there might be an even better way yet
+	if weapon == "shotgun1":
+		#SHOW TOOLTIP, PASS SHOTGUN TO TOOLTIP, ALLOW EQUIP FROM TOOLTIP LOGIC?
+		equip_shotgun()
+	if weapon == "pistol1":
+		equip_pistol()
+	#equip_right_fist()
 
 var pistol_damage := 3
 var shotgun_damage := 7

@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnribo8jc2aao"]
+[gd_scene load_steps=7 format=3 uid="uid://bnribo8jc2aao"]
 
 [ext_resource type="Script" path="res://scenes/entities/collectables/collectable_entity.gd" id="1_541go"]
-[ext_resource type="Resource" uid="uid://dm7h0f5874x24" path="res://scenes/resources/collectables/collectable resources/coin1.tres" id="2_l5lpa"]
 [ext_resource type="Texture2D" uid="uid://dip5a5rw81b2d" path="res://assets/art/collectables/coins/spr_coin_strip4.png" id="2_x2fwa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qiexb"]
@@ -97,7 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0532652, 0)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_541go")
-collectable_resource = ExtResource("2_l5lpa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

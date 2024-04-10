@@ -9,8 +9,9 @@ extends Area3D
 @export var collectable_resource: BaseCollectableResource = null
 
 func _ready():
-	area_entered.connect(on_area_entered)
 	set_texture()
+	area_entered.connect(on_area_entered)
+	
 
 func set_texture() -> void:
 	sprite_3d.texture = collectable_resource.collectable_texture
@@ -19,8 +20,6 @@ func on_area_entered(area: Area3D) -> void:
 	if area.owner.is_in_group("player"):
 		SignalBus.collected.emit(collectable_resource)
 		queue_free()
-
-
 
 
 
@@ -42,7 +41,7 @@ func on_collect() -> void:
 
 '''
 func handle_animations() -> void:
-	match collectable_resource.collectable_type:
+	match collectable_resource.collectable_name:
 		"":
 			return
 		"coin":
@@ -52,17 +51,17 @@ func handle_animations() -> void:
 
 
 func handle_sounds() -> void:
-	match collectable_resource.collectable_type:
+	match collectable_resource.collectable_name:
 		"":
 			return
 		"coin":
 			var sound_to_play = house_fourths[randi() % house_fourths.size()]
+			#MAKE THIS QUEUE SOUND TO PLAY ON NEXT BAR OR BEAT
 			house_fourth_player.stream = sound_to_play
 			house_fourth_player.play()
 			
-			
-			
-			
+		"weapon":
+			pass
 
 
 @onready var house_fourth_player = $ipod/HouseFourthPlayer
