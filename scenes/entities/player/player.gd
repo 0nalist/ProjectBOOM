@@ -48,21 +48,16 @@ func collect(collectable):
 	collected.emit(collectable)
 
 
-signal update_health(current_health, max_health)
-
 
 
 
 # ======== PLAYER BODY PARTS ======== #
 @onready var head = $Head
 @onready var main_camera = %MainCamera
-#@onready var health_bar = %HealthBar
 @onready var stamina_bar = %StaminaBar
 
 
 # PLAYER VARIABLES
-@export var max_health: float = 100.0
-@export var current_health: float = 50.0
 @export var stamina: float = 70.0
 @export var max_stamina: float = 100.0
 var dead = false
@@ -117,8 +112,6 @@ var t_bob = 0.0
 #var fov_change = 15
 
 #Movement calcd from accelERATION and FRICTION instead of SPEED
-#var Speed: float = 5.0
-#var speed := 5.0
 var accel = 90.0
 const FRICTION = .85
 var Jump_Velocity: float = 17.3
@@ -174,7 +167,6 @@ func _ready():
 	calculate_movement_parameters()
 	#$CanvasLayer/DeathScreen/Panel/RestartButton.button_up.connect(restart)
 	#$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
-	#%HealthBar.value = health #factoring this out into UI
 	%StaminaBar.value = stamina #this next
 	
 	drum_machine_factory_reset()
@@ -247,8 +239,6 @@ func _physics_process(delta):
 	if not sliding:
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		main_camera.transform.origin = _headbob(t_bob)
-	
-	
 
 
 
@@ -256,15 +246,12 @@ func _physics_process(delta):
 func _input(event):
 	if dead:
 		return
-
 	if event is InputEventMouseMotion:
 		var mouse_event = event.relative * mouse_sens
 		head.rotate_x(deg_to_rad(-event.relative.x * mouse_sens))
 		camera_look(mouse_event)
 	if Input.is_action_just_pressed("slide"):
 		slide()
-	if dead:
-		return
 	if Input.is_action_just_pressed("equip"):
 		#if not holding_pistol and not holding_right_fist and not holding_shotgun:
 		#	start_beat_count()
@@ -274,9 +261,7 @@ func _input(event):
 			pause_beat_system.emit()
 		if !counting_beat:
 			resume_beat_system.emit()
-	
-	
-	
+
 
 
 
@@ -359,7 +344,6 @@ func can_climb():
 
 
 
-
 func climb():
 	pass
 	
@@ -400,31 +384,14 @@ func climb():
 
 
 
-
-
-
-
-
-
-
-func change_health(amount: int) -> void:
-	current_health += amount
-	# Ensure health does not exceed maximum or fall below 0
-	current_health = clamp(current_health, 0, max_health)
-	# Emit the signal with the updated health values
-	emit_signal("update_health", current_health, max_health)
-
 		
-func damage_player(value):
-	change_health(-value)
-	if current_health <= 0:
-		kill()
+func damage_player(value: int):
+	$PlayerStatHandler.take_damage(value)
 
-func heal(value):
-	current_health += value
-	%HealthBar.value = current_health
-	if current_health <= 0:
-		kill()
+func heal(value: int):
+	$PlayerStatHandler.add_health(value)
+	
+
 
 var sliding = false
 var slide_time = 0.314159

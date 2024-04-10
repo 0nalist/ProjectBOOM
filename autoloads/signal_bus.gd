@@ -24,6 +24,8 @@ signal on_update_currency(value: int)
 signal on_pickup_weapon()#WHAT DO I PASS?
 #endregion
 
+
+
 func emit_on_collected(resource: Resource):
 	collected.emit(resource)
 
@@ -38,6 +40,7 @@ func emit_weapon_collected(collectable_entity_resource: BaseCollectableResource)
 
 func emit_on_update_health(value: int, max_value: int) -> void:
 	on_update_health.emit(value, max_value)
+
 func emit_on_update_currency(value: int) -> void:
 	on_update_currency.emit(value)
 	

@@ -31,7 +31,7 @@ var bass_on_hit = [''' ADD BASS SAMPLES OF DIFFERENT TONES HERE
 var dead := false
 var health := 30.0
 var max_hp := 69.420
-var attack_damage := .2
+var attack_damage := .25
 
 const SPEED := 9.9
 

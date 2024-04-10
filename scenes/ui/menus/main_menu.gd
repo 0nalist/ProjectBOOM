@@ -14,17 +14,17 @@ var splash_texts = [
 	"- working title -",
 	"- demo made hastily && with love -",
 	"- all art is placeholder -",
-	#"- investigate 311 -",
 	"- basic ass features coming soon -",
 	"- don't try to use the options menu -",
 	"- i'm more of an 'ideas' guy -",
-	"- who let the dogs out -",
 	"- pre-pre-alpha version 0.0.0.02 -",
 	'- "LeArN tO cOdE!"... ok -',
 	'- all systems are placeholder -',
 	'- i just need to implement this new feature... -',
-	"- brb refactoring every single function -",
+	"- i just need to refactor this system -",
 	"- please help me -",
+	"- dear diary, today i made the game worse -",
+	"- let me know if you see any bugs -",
 	
 ]
 
