@@ -1,7 +1,7 @@
 class_name CollectionHandler
 extends Area3D
 
-
+##I THINK I CAN DELETE THIS?
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("area_entered", on_area_entered)
