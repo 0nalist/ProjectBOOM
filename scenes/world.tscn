@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://c3cibwa0258ev"]
+[gd_scene load_steps=67 format=3 uid="uid://c3cibwa0258ev"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_0gs5r"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_ypnyy"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bjky5pe33700m" path="res://textures/RetroPixel/BRICK_2B.PNG" id="26_i1lkl"]
 [ext_resource type="Texture2D" uid="uid://u01e7l3m2yn1" path="res://textures/RetroPixel/BRICK_1A.PNG" id="27_18og0"]
 [ext_resource type="Texture2D" uid="uid://hwugcpx2mslw" path="res://textures/RetroPixel/CONCRETE_3C.PNG" id="28_qo1hb"]
-[ext_resource type="PackedScene" uid="uid://dfd03ri6sv1iu" path="res://scenes/utility/pickup.tscn" id="28_x56yp"]
 [ext_resource type="PackedScene" uid="uid://be5hwnqteq2km" path="res://scenes/managers/collectable_manager.tscn" id="29_adtwg"]
 [ext_resource type="Texture2D" uid="uid://bc2r3s7t7ykxm" path="res://textures/RetroPixel/BRICK_3B.PNG" id="29_jipcv"]
 [ext_resource type="PackedScene" uid="uid://bnribo8jc2aao" path="res://scenes/entities/collectables/collectable_entity.tscn" id="29_wert2"]
@@ -500,9 +499,6 @@ transform = Transform3D(0.88432, 0.0347136, 0.465588, -0.466881, 0.0657512, 0.88
 [node name="Beholder" parent="." instance=ExtResource("11_wphso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151672, -6.1411, -21.4773)
 
-[node name="Pickup2" parent="." instance=ExtResource("28_x56yp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5774, -6.38351, 3.52655)
-
 [node name="Level2" type="Node3D" parent="."]
 
 [node name="Map2" type="Node3D" parent="Level2"]
@@ -708,10 +704,6 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -127.932, 61.235, 51.46
 [node name="Enemy16" parent="Level2" instance=ExtResource("10_u7i82")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -107.872, 61.235, 40.7207)
 
-[node name="Pickup" parent="Level2" instance=ExtResource("28_x56yp")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -83.3234, 61.4578, 103.44)
-visible = false
-
 [node name="Enemy" parent="Level2" instance=ExtResource("10_u7i82")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.0234, 58.1258, 63.067)
 
@@ -737,8 +729,5 @@ collectable_resource = ExtResource("32_hrsv8")
 [node name="CollectableEntity3" parent="." instance=ExtResource("29_wert2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9475, 62.0518, 34.923)
 collectable_resource = ExtResource("33_lqmpe")
-
-[node name="Pickup" parent="." instance=ExtResource("28_x56yp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.4001, 61.1523, 106.087)
 
 [editable path="Level2/Enemy39"]

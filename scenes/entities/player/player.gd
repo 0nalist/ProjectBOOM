@@ -135,7 +135,7 @@ var Jump_Gravity: float = 17.0
 var Fall_Gravity: float = 17.0
 
 # GUN INITIALIZATION
-var one_shooting = false
+var one_shooting = true
 var two_shooting = true
 var three_shooting = true
 
