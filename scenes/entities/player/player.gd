@@ -51,21 +51,13 @@ func collect(collectable):
 
 
 
-
-
-
-
-
 # ======== PLAYER BODY PARTS ======== #
 @onready var head = $Head
 @onready var main_camera = %MainCamera
-@onready var health_bar = %HealthBar
 @onready var stamina_bar = %StaminaBar
 
 
 # PLAYER VARIABLES
-@export var max_hp: float = 100.0
-@export var health: float = 90.0
 @export var stamina: float = 70.0
 @export var max_stamina: float = 100.0
 var dead = false
@@ -97,7 +89,7 @@ var dead = false
 
 # FINE TUNE JUMP MECHANICS
 @export_category("Movement Parameters")
-@export var Jump_Peak_Time: float = .5
+@export var Jump_Peak_Time: float = .4
 @export var Jump_Fall_Time: float = .5
 @export var Jump_Height: float = 4.269
 #@export var Jump_Distance: float = 4.0
@@ -120,8 +112,6 @@ var t_bob = 0.0
 #var fov_change = 15
 
 #Movement calcd from accelERATION and FRICTION instead of SPEED
-#var Speed: float = 5.0
-#var speed := 5.0
 var accel = 90.0
 const FRICTION = .85
 var Jump_Velocity: float = 17.3
@@ -170,12 +160,14 @@ func calculate_movement_parameters()->void:
 var camera_rotation = Vector2(0,0)
 
 func _ready():
+	#Connect signals
+	
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	calculate_movement_parameters()
 	#$CanvasLayer/DeathScreen/Panel/RestartButton.button_up.connect(restart)
-	$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
-	%HealthBar.value = health
-	%StaminaBar.value = stamina
+	#$CanvasLayer/DeathScreen/Panel/QuitButton.button_up.connect(exit_game)
+	%StaminaBar.value = stamina #this next
 	
 	drum_machine_factory_reset()
 	start_beat_count()
@@ -247,8 +239,6 @@ func _physics_process(delta):
 	if not sliding:
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		main_camera.transform.origin = _headbob(t_bob)
-	
-	
 
 
 
@@ -256,15 +246,12 @@ func _physics_process(delta):
 func _input(event):
 	if dead:
 		return
-
 	if event is InputEventMouseMotion:
 		var mouse_event = event.relative * mouse_sens
 		head.rotate_x(deg_to_rad(-event.relative.x * mouse_sens))
 		camera_look(mouse_event)
 	if Input.is_action_just_pressed("slide"):
 		slide()
-	if dead:
-		return
 	if Input.is_action_just_pressed("equip"):
 		#if not holding_pistol and not holding_right_fist and not holding_shotgun:
 		#	start_beat_count()
@@ -274,9 +261,7 @@ func _input(event):
 			pause_beat_system.emit()
 		if !counting_beat:
 			resume_beat_system.emit()
-	
-	
-	
+
 
 
 
@@ -359,7 +344,6 @@ func can_climb():
 
 
 
-
 func climb():
 	pass
 	
@@ -400,27 +384,14 @@ func climb():
 
 
 
-
-
-
-
-
-
-
-
-
 		
-func damage_player(value):
-	health -= value
-	%HealthBar.value = health
-	if health <= 0:
-		kill()
+func damage_player(value: int):
+	$PlayerStatHandler.take_damage(value)
 
-func heal(value):
-	health += value
-	%HealthBar.value = health
-	if health <= 0:
-		kill()
+func heal(value: int):
+	$PlayerStatHandler.add_health(value)
+	
+
 
 var sliding = false
 var slide_time = 0.314159
@@ -634,6 +605,10 @@ func shoot_play_shotgun():
 	# Apply the push force to the player's velocity
 	velocity -= push_force
 	
+	#IF POINTING AT GROUND: (having trouble finding this)
+	#var upward_direction = global_transform.basis.y
+	#velocity += upward_direction * 15
+	
 	#damage target if hit
 	if gun_ray.is_colliding() and gun_ray.get_collider().has_method("take_damage"): #THIS LINE gives "Attempt to call function 'has_method' in base 'null instance' on a null instance." when an enemy is killed while paused
 		gun_ray.get_collider().take_damage(right_fist_damage)
@@ -668,7 +643,7 @@ func shoot_play_kick_punch():
 
 # AUDIO FX SYSTEM
 func nudge_bass_cutoff_filter(value):
-	
+	pass
 	''' NOT WORKING. Consult godotdocs
 	var bus_name = "bassfx"
 	var bus_index = AudioServer.get_bus_index(bus_name)

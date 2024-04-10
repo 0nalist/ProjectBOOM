@@ -8,8 +8,23 @@ extends Area3D
 
 @export var collectable_resource: BaseCollectableResource = null
 
+func _ready():
+	area_entered.connect(on_area_entered)
+	set_texture()
+
+func set_texture() -> void:
+	sprite_3d.texture = collectable_resource.collectable_texture
+
+func on_area_entered(area: Area3D) -> void:
+	if area.owner.is_in_group("player"):
+		SignalBus.collected.emit(collectable_resource)
+		queue_free()
 
 
+
+
+
+'''OLD
 signal collect_entity
 
 
@@ -25,7 +40,7 @@ func on_collect() -> void:
 	handle_sounds()
 	#queue_free()
 
-
+'''
 func handle_animations() -> void:
 	match collectable_resource.collectable_type:
 		"":

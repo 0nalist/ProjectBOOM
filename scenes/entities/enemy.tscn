@@ -400,6 +400,8 @@ bus = &"bass"
 stream = ExtResource("10_j64em")
 bus = &"bass"
 
+[node name="BassOnHit" type="AudioStreamPlayer" parent="."]
+
 [connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_area_entered"]
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
 [connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]

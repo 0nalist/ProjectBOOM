@@ -73,5 +73,5 @@ bus/8/name = &"bass"
 bus/8/solo = false
 bus/8/mute = false
 bus/8/bypass_fx = false
-bus/8/volume_db = -5.93075
+bus/8/volume_db = -4.5012
 bus/8/send = &"bassfx"

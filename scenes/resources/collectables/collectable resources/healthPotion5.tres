@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CurrencyResource" load_steps=3 format=3 uid="uid://c1drmafn531t2"]
+
+[ext_resource type="Texture2D" uid="uid://dc2bb47tjuobf" path="res://assets/art/collectables/coins/spr_coin_roj.png" id="1_4oe7l"]
+[ext_resource type="Script" path="res://scenes/resources/collectables/currency_resource.gd" id="2_j82ej"]
+
+[resource]
+script = ExtResource("2_j82ej")
+collectable_texture = ExtResource("1_4oe7l")
+collectable_type = null
+tag = "Health"
+value = 5

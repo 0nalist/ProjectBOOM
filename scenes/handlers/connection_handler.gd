@@ -14,4 +14,5 @@ func on_area_entered(area: Area3D) -> void:
 		return
 	
 	if area is BaseCollectableEntity:
-		area.emit_signal("collect_entity")
+		#area.emit_signal("collect_entity") #TEMPORARY
+		pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c3cibwa0258ev"]
+[gd_scene load_steps=66 format=3 uid="uid://c3cibwa0258ev"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_0gs5r"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_ypnyy"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bnribo8jc2aao" path="res://scenes/entities/collectables/collectable_entity.tscn" id="29_wert2"]
 [ext_resource type="Texture2D" uid="uid://c7gysfn6ldkdb" path="res://textures/RetroPixel/BRICK_3D.PNG" id="30_ghwve"]
 [ext_resource type="Texture2D" uid="uid://dixjfkdk2leot" path="res://textures/RetroPixel/SAND_1A.PNG" id="31_4njwu"]
+[ext_resource type="Resource" uid="uid://c1drmafn531t2" path="res://scenes/resources/collectables/collectable resources/healthPotion5.tres" id="31_y2s66"]
 [ext_resource type="Texture2D" uid="uid://c43kba62no0eu" path="res://textures/RetroPixel/PIPES_1A.PNG" id="32_u35sj"]
 [ext_resource type="Texture2D" uid="uid://ccfbnkkhjr8c4" path="res://textures/RetroPixel/SLIME_1A.PNG" id="33_865qp"]
 [ext_resource type="Texture2D" uid="uid://ci6y3x8prb814" path="res://textures/RetroPixel/LIGHT_1B.PNG" id="34_ghjeh"]
@@ -742,5 +743,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.4087, 60.1091, -18.1681)
 
 [node name="CollectableEntity3" parent="CollectableContainer" instance=ExtResource("29_wert2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0498, 60.6393, 41.5449)
+
+[node name="CollectableEntity" parent="." instance=ExtResource("29_wert2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8886, 62.0518, 37.2532)
+collectable_resource = ExtResource("31_y2s66")
 
 [editable path="Level2/Enemy39"]
