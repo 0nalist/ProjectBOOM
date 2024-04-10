@@ -5,14 +5,14 @@ class_name Pickup
 
 @export var label_text: Resource
 
-'''
+
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		
 		body.collect(self)
 		#delay
 		queue_free()
-'''
+
 func _physics_process(delta):
 	rotate(Vector3(0,1,0), 1*delta)
 	

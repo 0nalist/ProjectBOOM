@@ -25,7 +25,7 @@ var splash_texts = [
 	"- please help me -",
 	"- dear diary, today i made the game worse -",
 	"- let me know if you see any bugs -",
-	
+	"- 0% optimized -"
 ]
 
 
@@ -46,7 +46,7 @@ func _on_start_game_button_pressed() -> void:
 	hide()
 
 func _on_options_button_pressed():
-	pass # Replace with function body.
+	print("options!")
 
 func _on_quit_game_button_pressed():
 	get_tree().quit()

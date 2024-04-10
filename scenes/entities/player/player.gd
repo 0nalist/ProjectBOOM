@@ -385,10 +385,10 @@ func climb():
 
 
 		
-func damage_player(value: int):
+func damage_player(value: float):
 	$PlayerStatHandler.take_damage(value)
 
-func heal(value: int):
+func heal(value: float):
 	$PlayerStatHandler.add_health(value)
 	
 

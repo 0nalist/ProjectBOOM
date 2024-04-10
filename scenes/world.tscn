@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://c3cibwa0258ev"]
+[gd_scene load_steps=65 format=3 uid="uid://c3cibwa0258ev"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_0gs5r"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_ypnyy"]
@@ -9,12 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cfmw83061r4u8" path="res://scenes/entities/enemy.tscn" id="10_u7i82"]
 [ext_resource type="Texture2D" uid="uid://dts2yp3q712s6" path="res://textures/RetroPixel/FLOOR_1A.PNG" id="11_h3sbu"]
 [ext_resource type="PackedScene" uid="uid://ckxax18tflhon" path="res://scenes/entities/beholder.tscn" id="11_wphso"]
-[ext_resource type="PackedScene" uid="uid://dfd03ri6sv1iu" path="res://scenes/utility/pickup.tscn" id="24_qqdh6"]
 [ext_resource type="Texture2D" uid="uid://dgt7qfvf2pb0k" path="res://textures/RetroPixel/GRASS_1A.PNG" id="25_8xmjd"]
 [ext_resource type="Texture2D" uid="uid://bjky5pe33700m" path="res://textures/RetroPixel/BRICK_2B.PNG" id="26_i1lkl"]
 [ext_resource type="Texture2D" uid="uid://u01e7l3m2yn1" path="res://textures/RetroPixel/BRICK_1A.PNG" id="27_18og0"]
 [ext_resource type="Texture2D" uid="uid://hwugcpx2mslw" path="res://textures/RetroPixel/CONCRETE_3C.PNG" id="28_qo1hb"]
-[ext_resource type="PackedScene" uid="uid://06yoxyxut8t0" path="res://scenes/entities/pickup.tscn" id="28_x56yp"]
+[ext_resource type="PackedScene" uid="uid://dfd03ri6sv1iu" path="res://scenes/utility/pickup.tscn" id="28_x56yp"]
 [ext_resource type="PackedScene" uid="uid://be5hwnqteq2km" path="res://scenes/managers/collectable_manager.tscn" id="29_adtwg"]
 [ext_resource type="Texture2D" uid="uid://bc2r3s7t7ykxm" path="res://textures/RetroPixel/BRICK_3B.PNG" id="29_jipcv"]
 [ext_resource type="PackedScene" uid="uid://bnribo8jc2aao" path="res://scenes/entities/collectables/collectable_entity.tscn" id="29_wert2"]
@@ -498,15 +497,12 @@ transform = Transform3D(0.88432, 0.0347136, 0.465588, -0.466881, 0.0657512, 0.88
 [node name="Beholder" parent="." instance=ExtResource("11_wphso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151672, -6.1411, -21.4773)
 
-[node name="Pickup2" parent="." instance=ExtResource("24_qqdh6")]
+[node name="Pickup2" parent="." instance=ExtResource("28_x56yp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5774, -6.38351, 3.52655)
 
 [node name="Level2" type="Node3D" parent="."]
 
 [node name="Map2" type="Node3D" parent="Level2"]
-
-[node name="Pickup" parent="Level2/Map2" instance=ExtResource("24_qqdh6")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -83.4788, 60.5638, 106.891)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level2/Map2"]
 navigation_mesh = SubResource("NavigationMesh_6vpxa")
